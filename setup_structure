@@ -1,0 +1,23 @@
+                ┌──────────────┐
+                │   Client     │
+                └──────┬───────┘
+                       │
+                ┌──────▼───────┐
+                │   NGINX      │  <- Load Balancer + Web Server (HTTPS/SSL)
+                └──────┬───────┘
+                       │
+              ┌────────▼────────┐
+              │  PHP-FPM Nodes  │  <- Scales horizontally
+              └────────┬────────┘
+                       │
+              ┌────────▼────────┐
+              │   Redis Server  │  <- Session/cache queue
+              └────────┬────────┘
+                       │
+              ┌────────▼────────┐
+              │   MySQL (RDS)   │  <- Master-Slave setup
+              └────────┬────────┘
+                       │
+              ┌────────▼────────┐
+              │ Elasticsearch   │  <- Full-text search / logging
+              └─────────────────┘
