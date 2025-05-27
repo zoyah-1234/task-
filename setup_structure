@@ -21,3 +21,24 @@
               ┌────────▼────────┐
               │ Elasticsearch   │  <- Full-text search / logging
               └─────────────────┘
+Tech Stack Summary
+Component	
+
+Web Server	  NGINX
+App Runtime	  PHP-FPM + Laravel
+Queue/Cache 	Redis (or ElastiCache)
+Database     	MySQL (RDS)
+Search       	Elasticsearch
+Deployment   	GitLab CI/CD
+Hosting      	AWS EC2 / ECS / EKS
+
+
+
+Cost Optimization
+Use auto-scaling (ECS/K8s) for compute.
+
+Spot instances for non-critical workloads (e.g. queue workers).
+
+Use managed services (like RDS, ElastiCache, OpenSearch) to reduce ops overhead.
+
+Enable monitoring + alerts (CloudWatch, Prometheus) to optimize usage.
